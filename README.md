@@ -1,5 +1,10 @@
 # My Neovim configuration.
-Theme: [Nord](https://github.com/shaunsingh/nord.nvim)
+<h4>Screenshootes <a href="https://github.com/shaunsingh/nord.nvim">nord theme</a></h4>
+
+|     |     |
+|-----|-----|
+|![1st screenshot](https://github.com/DarkSeriusCode/nvim-config/blob/main/screenshots/1.png)|![2nd screenshot](https://github.com/DarkSeriusCode/nvim-config/blob/main/screenshots/2.png)|
+|![3rd screenshot](https://github.com/DarkSeriusCode/nvim-config/blob/main/screenshots/3.png)|![4th screenshot](https://github.com/DarkSeriusCode/nvim-config/blob/main/screenshots/4.png)|
 
 ### Plugins (Packer [24 plugins])
 * [lualine](https://github.com/nvim-lualine/lualine.nvim)
