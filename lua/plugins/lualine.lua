@@ -40,7 +40,8 @@ nord.replace = {
 }
 
 
--- Components
+---------------------------- Coponents ----------------------------
+-- Returns an empty string with specified length and transparent bg
 local function empty(len)
     return {
         function()
@@ -50,6 +51,7 @@ local function empty(len)
     }
 end
 
+-- Returns navic location
 local function navic_component()
     return {
         function()
@@ -58,11 +60,12 @@ local function navic_component()
             end
             return ""
         end,
-        separator = { right = "", left = "  " },
+        separator = { right = "", left = "" },
         color = { bg = colors.nord1, fg = colors.nord5, gui = "italic" },
     }
 end
 
+-- Returns custom file location
 local function location_component()
     return "%l/%L %p%%"
 end
@@ -73,14 +76,14 @@ require("lualine").setup({
     options = {
         theme = nord,
         section_separators = { left = "", right = "" },
-        component_separators = { left = "|", right = "|" } 
+        component_separators = { left = "|", right = "|" },
     },
 
     sections = {
         lualine_a = {
             {
-                "mode", 
-                separator = { left = "", right = "" },
+                "mode",
+                separator = { left = "", right = "" },
             }
         },
         lualine_b = {
@@ -89,7 +92,7 @@ require("lualine").setup({
                 icon_only = true,
                 separator = { right = "" },
                 padding = { right = 0, left = 1 },
-            }, 
+            },
             {
                 "filename",
                 newfile_status = true,
@@ -101,7 +104,7 @@ require("lualine").setup({
                     unnamed = "",
                     newfile = " ",
                 }
-            }, 
+            },
             {
                 "diagnostics",
                 sections = { "error", "warn", "info" },
@@ -112,7 +115,7 @@ require("lualine").setup({
                 },
                 separator = { right = "" },
             },
-            empty(20),
+            empty(23),
             navic_component()
         },
         lualine_c = {},
@@ -131,7 +134,7 @@ require("lualine").setup({
         lualine_z = {
             {
                location_component,
-               separator = { right = "", left = "" },
+               separator = { right = "", left = "" },
             },
         },
     },
