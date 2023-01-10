@@ -41,27 +41,20 @@ nord.replace = {
 
 
 ---------------------------- Coponents ----------------------------
--- Returns an empty string with specified length and transparent bg
-local function empty(len)
-    return {
-        function()
-            return string.rep(" ", len)
-        end,
-        color = no_bg,
-    }
-end
-
 -- Returns navic location
 local function navic_component()
     return {
         function()
+            local location = nil
             if navic.is_available() then
-                return navic.get_location()
+                location = navic.get_location()
             end
-            return ""
+            if #location == 0 then
+                location = " "
+            end
+            return location
         end,
-        separator = { right = "", left = "" },
-        color = { bg = colors.nord1, fg = colors.nord5, gui = "italic" },
+        color = { bg = colors.nord1, fg = colors.nord5, gui = "italic" }
     }
 end
 
@@ -115,8 +108,6 @@ require("lualine").setup({
                 },
                 separator = { right = "" },
             },
-            empty(23),
-            navic_component()
         },
         lualine_c = {},
         lualine_x = {},
@@ -138,4 +129,9 @@ require("lualine").setup({
             },
         },
     },
+    winbar = {
+        lualine_a = {
+            navic_component(),
+        },
+    }
 })
