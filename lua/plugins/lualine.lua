@@ -100,11 +100,12 @@ require("lualine").setup({
             },
             {
                 "diagnostics",
-                sections = { "error", "warn", "info" },
+                sections = { "error", "warn", "info", "hint" },
                 symbols = {
                     error = " ",
                     warn = " ",
                     info = " ",
+                    hint = " ",
                 },
                 separator = { right = "" },
             },
