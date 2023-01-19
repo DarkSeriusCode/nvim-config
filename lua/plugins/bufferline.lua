@@ -10,6 +10,7 @@ require("bufferline").setup({
             style = "underline",
         },
         buffer_close_icon = "",
+        tab_size = 10,
 
         -- Offsets
         offsets = {
