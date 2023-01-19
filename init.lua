@@ -14,6 +14,9 @@ g.number = true
 g.relativenumber = true
 g.termguicolors = true
 
+-- Unlimeted undos
+g.undofile = true
+
 vim.cmd "colorscheme nord"
 vim.cmd "set noshowmode" -- Я не знал как сделать иначе)
 vim.cmd "set cc=90"
