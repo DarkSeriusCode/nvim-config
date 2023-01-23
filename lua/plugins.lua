@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 
 -----------------------------( Общие/для других плагинов )-------------------------------
     -- Treesitter
-    use "nvim-treesitter/nvim-treesitter" 
+    use "nvim-treesitter/nvim-treesitter"
 
     -- Менеджер сессий
     use "Shatur/neovim-session-manager"
@@ -77,6 +77,9 @@ return require("packer").startup(function(use)
 
     -- Wakatime
     use "wakatime/vim-wakatime"
+
+    -- Discord
+    use "andweeb/presence.nvim"
 
     -- Навигация по структуре
     use "SmiteshP/nvim-navic"

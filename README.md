@@ -21,6 +21,7 @@
 * [nvim-surround](https://github.com/kylechui/nvim-surround)  (not configured yet)
 * [nvim-comment](https://github.com/terrortylor/nvim-comment)
 * [vim-wakatime](https://github.com/wakatime/vim-wakatime)
+* [presence](https://github.com/andweeb/presence.nvim)
 * [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 * [mason](https://github.com/williamboman/mason.nvim)
     + [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
