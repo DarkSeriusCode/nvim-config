@@ -84,6 +84,9 @@ return require("packer").startup(function(use)
     -- Навигация по структуре
     use "SmiteshP/nvim-navic"
 
+    -- Arduino
+    use "stevearc/vim-arduino"
+
 
 -----------------------------------( LSP/Completion )-------------------------------------
     -- LSP

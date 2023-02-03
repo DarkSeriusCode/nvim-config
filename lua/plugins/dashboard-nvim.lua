@@ -1,6 +1,3 @@
-local db = require("dashboard")
-local file_path = vim.fn.stdpath("config").."/static/bg.jpg"
-
 -- Custom headers
 
 local header_nvim1 = {
@@ -28,42 +25,39 @@ local header_nvim2 = {
     '',
 }
 
--- db.preview_file_path = file_path
--- db.preview_command = "ueberzug"
--- db.preview_file_width = 30
--- db.preview_file_height = 12
-
-db.custom_header = header_nvim2
-
-
-db.custom_center = {
-    {
-        icon = '  ',
-        desc = 'Recently latest session                  ',
-        action ='SessionManager load_current_dir_session'
+require("dashboard").setup({
+    theme = "hyper",
+    hide = {
+        statusline = true,
     },
+    config = {
+        shortcut = {
+            {
+                desc = " Open last session",
+                action = "SessionManager load_last_session",
+                group = "Statement",
+                key = "s",
+            },
+            {
+                desc = " Update plugins",
+                action = "PackerUpdate",
+                group = "Number",
+                key = "u",
+            },
+            {
+                desc = " Go to the street and touch grass",
+                action = "q",
+                group = "Character",
+                key = "q",
+            },
+        },
+        mru = {
+            limit = 5,
+        },
+        week_header = {
+            enable = true,
+        },
+        footer = {"", "", "", "You are still alone! Have fun, programmer ;)"},
+    }
 
-    {
-        icon = '  ',
-        desc = 'Find  File                              ',
-        action = 'Telescope find_files',
-    },
-
-    {
-        icon = '  ',
-        desc ='File Browser                            ',
-        action = 'NvimTreeToggle',
-    },
-
-    {
-        icon = ';-; ',
-        desc = 'Go to real life!                       ',
-        action = 'q',
-    },
-
-}
-
-db.custom_footer = {
-    'Have fun)',
-    '',
-}
+})
