@@ -34,7 +34,7 @@ require("dashboard").setup({
         shortcut = {
             {
                 desc = " Open last session",
-                action = "SessionManager load_last_session",
+                action = "SessionManager load_current_dir_session",
                 group = "Statement",
                 key = "s",
             },
