@@ -8,7 +8,8 @@ local function navic_on_attach(client, bufnr)
     end
 end
 
-local servers = {lsp.rust_analyzer, lsp.clangd, lsp.lua_ls, lsp.arduino_language_server}
+local servers = {lsp.rust_analyzer, lsp.clangd, lsp.lua_ls, lsp.arduino_language_server,
+                lsp.cmake}
 
 for _, server in ipairs(servers) do
     server.setup({
