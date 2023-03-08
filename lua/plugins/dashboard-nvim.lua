@@ -12,6 +12,7 @@ local header_nvim1 = {
 }
 
 local header_nvim2 = {
+    '', '', '',
     '     _           _                      _             ',
     '             ▕                                 ',
     '  ▕ ███       ▕│█     ___   ___                 ',
@@ -22,42 +23,72 @@ local header_nvim2 = {
     '     ▕│    ████      ‾‾    ‾                 ',
     '     ▕│                                        ',
     '                 ‾                      ‾             ',
-    '',
+    '', '', '', '',
 }
 
 require("dashboard").setup({
-    theme = "hyper",
+    theme = "doom",
     hide = {
         statusline = true,
     },
     config = {
-        shortcut = {
+        header = header_nvim2,
+        center = {
             {
-                desc = " Open last session",
-                action = "SessionManager load_current_dir_session",
-                group = "Statement",
+                icon = " ",
+                icon_hl = "TSConstant",
+                desc = "Open last session",
+                desc_hl = "TSConstant",
                 key = "s",
+                key_hl = "TSConstant",
+                action = "SessionManager load_current_dir_session",
             },
+
             {
-                desc = " Update plugins",
-                action = "PackerUpdate",
-                group = "Number",
+                icon = " ",
+                icon_hl = "Number",
+                desc = "Update plugins",
+                desc_hl = "Number",
                 key = "u",
+                key_hl = "Number",
+                action = "PackerUpdate",
             },
+
             {
-                desc = " Go to the street and touch grass",
-                action = "q",
-                group = "Character",
+                icon = " ",
+                icon_hl = "Character",
+                desc = "Go outside and touch a grass",
+                desc_hl = "Character",
                 key = "q",
+                key_hl = "Character",
+                action = "q",
             },
+
+            {
+                icon = " ",
+                icon_hl = "@property",
+                desc = "Open directory",
+                desc_hl = "@property",
+                key = "d",
+                key_hl = "@property",
+                action = "NvimTreeToggle",
+            },
+
+            {
+                icon = " ",
+                icon_hl = "@debug",
+                desc = "Find file in the directory",
+                desc_hl = "@debug",
+                key = "f",
+                key_hl = "@debug",
+                action = "Telescope find_files",
+            }
         },
-        mru = {
-            limit = 5,
-        },
-        week_header = {
-            enable = true,
-        },
-        footer = {"", "", "", "You are still alone! Have fun, programmer ;)"},
+        packages = { enable = true },
+        -- week_header = {
+        --     enable = true,
+        -- },
+        footer = {"", "", "", "Let's get Rusty"},
     }
 
 })

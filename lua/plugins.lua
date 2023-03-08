@@ -21,7 +21,6 @@ return require("packer").startup(function(use)
 
 ------------------------------------( Внешний вид )--------------------------------------
     -- Темы
-    use "EdenEast/nightfox.nvim"
     use "shaunsingh/nord.nvim"
 
     -- Lualine
@@ -43,9 +42,6 @@ return require("packer").startup(function(use)
 -----------------------------( Общие/для других плагинов )-------------------------------
     -- Treesitter
     use "nvim-treesitter/nvim-treesitter"
-
-    -- Менеджер сессий
-    use "Shatur/neovim-session-manager"
 
     -- Иконки, нужны для многих плагинов
     use "kyazdani42/nvim-web-devicons"
@@ -75,6 +71,9 @@ return require("packer").startup(function(use)
     -- Удобное и быстрое комментирование кода
     use "terrortylor/nvim-comment"
 
+    -- Sessions
+    use "Shatur/neovim-session-manager"
+
     -- Wakatime
     use "wakatime/vim-wakatime"
 
@@ -84,15 +83,12 @@ return require("packer").startup(function(use)
     -- Навигация по структуре
     use "SmiteshP/nvim-navic"
 
-    -- Arduino
-    use "stevearc/vim-arduino"
-
 
 -----------------------------------( LSP/Completion )-------------------------------------
     -- LSP
     use "williamboman/mason-lspconfig.nvim"
     use "williamboman/mason.nvim"
-    use "neovim/nvim-lspconfig" 
+    use "neovim/nvim-lspconfig"
 
     -- Completion
     use "L3MON4D3/LuaSnip"
@@ -101,7 +97,6 @@ return require("packer").startup(function(use)
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
- 
 
     if packer_bootstrab then
         require("packer").sync()
