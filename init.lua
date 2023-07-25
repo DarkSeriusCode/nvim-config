@@ -1,10 +1,10 @@
 local g = vim.opt
-local base = require "base"
-local keys = require "keys"
-local plugins = require "plugins"
-local commands = require "commands"
-local theme = require "theme"
-local lsp = require "lsp"
+require "base"
+require "keys"
+require "plugins"
+require "commands"
+require "theme"
+require "lsp"
 
 -- Disable mouse
 vim.cmd "set mouse="
@@ -17,7 +17,6 @@ g.termguicolors = true
 -- Unlimeted undos
 g.undofile = true
 
-vim.cmd "colorscheme nord"
 vim.cmd "set noshowmode" -- Я не знал как сделать иначе)
 vim.cmd "set cc=100"
 

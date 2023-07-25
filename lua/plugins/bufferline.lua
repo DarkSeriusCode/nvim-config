@@ -1,8 +1,3 @@
-local highlights = require("nord").bufferline.highlights({
-    italic = true,
-    bold = true,
-})
-
 require("bufferline").setup({
     options = {
         -- Style
@@ -21,7 +16,7 @@ require("bufferline").setup({
             separator = true,
             }
         },
-        
+
         -- LSP integration
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level, diagnostics_dict, context)

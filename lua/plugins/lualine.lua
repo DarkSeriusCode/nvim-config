@@ -1,44 +1,21 @@
 local navic = require("nvim-navic")
-local nord = require("lualine.themes.nord")
 
--- Custom theme
-local colors = {
-    nord0  = "#2E3440",
-    nord1  = "#3B4252",
-    nord2  = "#434C5E",
-    nord3  = "#4C566A",
-    nord4  = "#D8DEE9",
-    nord5  = "#E5E9F0",
-    nord6  = "#ECEFF4",
-    nord7  = "#8FBCBB",
-    nord8  = "#88C0D0",
-    nord9  = "#81A1C1",
-    nord10 = "#5E81AC",
-    nord11 = "#BF616A",
-    nord12 = "#D08770",
-    nord13 = "#EBCB8B",
-    nord14 = "#A3BE8C",
-    nord15 = "#B48EAD",
-}
+local catppuccin_theme = require("lualine.themes.catppuccin")
+local colors = require("catppuccin.palettes").get_palette("mocha")
 
-local no_bg = { bg = colors.nord0, fg = colors.nord5 }
+local default_bg = colors.mantle
+local no_bg = { bg = colors.base, fg = colors.text }
 
-nord.normal = {
-    a = { bg = colors.nord9, fg = colors.nord1, gui = "bold" },
-    b = { bg = colors.nord1, fg = colors.nord5 },
+catppuccin_theme.normal = {
+    a = catppuccin_theme.normal.a,
+    b = { bg = default_bg, fg = colors.blue },
     c = no_bg,
 }
 
-nord.command = {
-    a = { bg = colors.nord15, fg = colors.nord1, gui = "bold" },
-    z = { bg = colors.nord15, fg = colors.nord1, gui = "bold" },
-}
-
-nord.replace = {
-    a = { bg = colors.nord11, fg = colors.nord1, gui = "bold" },
-    z = { bg = colors.nord11, fg = colors.nord1, gui = "bold" },
-}
-
+catppuccin_theme.insert.b = { bg = default_bg, fg = colors.green }
+catppuccin_theme.visual.b = { bg = default_bg, fg = colors.pink }
+catppuccin_theme.replace.b = { bg = default_bg, fg = colors.red }
+catppuccin_theme.command.b = { bg = default_bg, fg = colors.yellow }
 
 ---------------------------- Coponents ----------------------------
 -- Returns navic location
@@ -54,7 +31,7 @@ local function navic_component()
             end
             return location
         end,
-        color = { bg = colors.nord1, fg = colors.nord5, gui = "italic" }
+        color = { bg = colors.mantle, fg = colors.text, gui = "italic" }
     }
 end
 
@@ -67,7 +44,7 @@ end
 
 require("lualine").setup({
     options = {
-        theme = nord,
+        theme = catppuccin_theme,
         section_separators = { left = "", right = "" },
         component_separators = { left = "|", right = "|" },
     },
@@ -76,7 +53,7 @@ require("lualine").setup({
         lualine_a = {
             {
                 "mode",
-                separator = { left = "", right = "" },
+                separator = { left = "", right = "" },
             }
         },
         lualine_b = {
@@ -126,7 +103,7 @@ require("lualine").setup({
         lualine_z = {
             {
                location_component,
-               separator = { right = "", left = "" },
+               separator = { right = "", left = "" },
             },
         },
     },

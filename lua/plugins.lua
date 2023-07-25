@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 
 ------------------------------------( Внешний вид )--------------------------------------
     -- Темы
-    use "shaunsingh/nord.nvim"
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Lualine
     use {
