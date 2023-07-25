@@ -20,22 +20,28 @@ g.undofile = true
 vim.cmd "set noshowmode" -- Я не знал как сделать иначе)
 vim.cmd "set cc=100"
 
+local function hasConfig(plugin)
+    local f = io.open(vim.fn.stdpath("config").."/lua/plugins/"..plugin..".lua", "r")
+    if f ~= nil then
+        io.close(f)
+        return true
+    else
+        return false
+    end
+end
+
 -- Plugins
-require("plugins/dashboard-nvim")
-require("plugins/lualine")
-require("plugins/bufferline")
-require("plugins/telescope")
-require("plugins/nvim-tree")
-require("plugins/nvim-treesitter")
-require("plugins/cmp")
-require("plugins/sessions")
-require("plugins/indent-blankline")
-require("plugins/nvim-comment")
-require("plugins/nvim-navic")
-require("plugins/presence")
-require("nvim-autopairs").setup()
-require("mason").setup()
--- require("nvim-surround").setup()
+local plugins = {"dashboard-nvim", "lualine", "bufferline", "telescope", "nvim-tree",
+                 "nvim-treesitter", "cmp", "sessions", "indent-blankline", "nvim-comment",
+                 "nvim-navic", "presence", "nvim-autopairs", "mason", "nvim-surround"}
+
+for _, plugin in ipairs(plugins) do
+    if hasConfig(plugin) then
+        require("plugins/"..plugin)
+    else
+        require(plugin).setup()
+    end
+end
 
 -- Fun
 print("Do u wanna see my dotfiles?")

@@ -1,9 +1,8 @@
-require("bufferline").setup({
+local bufferline = require("bufferline")
+
+bufferline.setup({
     options = {
         -- Style
-        indicator = {
-            style = "underline",
-        },
         buffer_close_icon = "",
         tab_size = 10,
 
@@ -19,7 +18,7 @@ require("bufferline").setup({
 
         -- LSP integration
         diagnostics = "nvim_lsp",
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        diagnostics_indicator = function(_, _, diagnostics_dict, _)
             local s = " "
             for e, n in pairs(diagnostics_dict) do
                     local sym = e == "error" and " " or (e == "warning" and " " or "" )

@@ -19,7 +19,7 @@ require("nvim-tree").setup({
     git = {
         ignore = false,
     },
-    
+
     view = {
         width = 25,
         signcolumn = "auto",
@@ -33,10 +33,10 @@ require("nvim-tree").setup({
         },
         icons = {
             glyphs = {
-            folder = {
-                arrow_closed = "",
-                arrow_open = "",
-            }
+                folder = {
+                    arrow_closed = "",
+                    arrow_open = "",
+                }
             }
         }
     }
