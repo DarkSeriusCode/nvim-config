@@ -19,7 +19,7 @@ g.undofile = true
 
 vim.cmd "colorscheme nord"
 vim.cmd "set noshowmode" -- Я не знал как сделать иначе)
-vim.cmd "set cc=90"
+vim.cmd "set cc=100"
 
 -- Plugins
 require("plugins/dashboard-nvim")
