@@ -1,21 +1,5 @@
 local navic = require("nvim-navic")
-
-local catppuccin_theme = require("lualine.themes.catppuccin")
-local colors = require("catppuccin.palettes").get_palette("mocha")
-
-local default_bg = colors.mantle
-local no_bg = { bg = colors.base, fg = colors.text }
-
-catppuccin_theme.normal = {
-    a = catppuccin_theme.normal.a,
-    b = { bg = default_bg, fg = colors.blue },
-    c = no_bg,
-}
-
-catppuccin_theme.insert.b = { bg = default_bg, fg = colors.green }
-catppuccin_theme.visual.b = { bg = default_bg, fg = colors.pink }
-catppuccin_theme.replace.b = { bg = default_bg, fg = colors.red }
-catppuccin_theme.command.b = { bg = default_bg, fg = colors.yellow }
+local theme = require("lua.theme")
 
 ---------------------------- Coponents ----------------------------
 -- Returns navic location
@@ -31,7 +15,7 @@ local function navic_component()
             end
             return location
         end,
-        color = { bg = colors.mantle, fg = colors.text, gui = "italic" }
+        color = theme.navic_bar_theme,
     }
 end
 
@@ -40,11 +24,9 @@ local function location_component()
     return "%l/%L %p%%"
 end
 
-
-
 require("lualine").setup({
     options = {
-        theme = catppuccin_theme,
+        theme = theme.lualine_theme,
         section_separators = { left = "", right = "" },
         component_separators = { left = "|", right = "|" },
     },

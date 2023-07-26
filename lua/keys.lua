@@ -1,4 +1,3 @@
-local g = vim.g
 local tscope = require("telescope.builtin")
 
 local function set_fabric(mode)
@@ -7,8 +6,7 @@ local function set_fabric(mode)
     end
 end
 
-nset = set_fabric("n")
-iset = set_fabric("i")
+local nset = set_fabric("n")
 
 -- Перемещение между буферами
 nset("<c-h>", "<cmd>bp<cr>")

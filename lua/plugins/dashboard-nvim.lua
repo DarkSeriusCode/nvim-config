@@ -1,39 +1,17 @@
--- Custom headers
-
-local header_nvim1 = {
-    ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-    ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-    ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-    ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-    ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-    ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-    '',
-    '',
-}
-
-local header_nvim2 = {
-    '', '', '',
-    '     _           _                      _             ',
-    '             ▕                                 ',
-    '  ▕ ███       ▕│█     ___   ___                 ',
-    '  ▕││███     ▕│███▕│         █   ██      ',
-    '  ▕││  ███   ▕│███▕│▕│ ▁ ▕│    ▕│██          ',
-    '  ▕││  ▕│███ ▕│███▕│▕│   ▕│    ▕│██  ◢◣  ◢  ',
-    '  ▕││  ▕│  ███│███▕│  ▁▁  ▁   ██   ▜█ ██  ',
-    '     ▕│    ████      ‾‾    ‾                 ',
-    '     ▕│                                        ',
-    '                 ‾                      ‾             ',
-    '', '', '', '',
-}
+local settings = require("settings")
 
 require("dashboard").setup({
-    theme = "doom",
+    theme = "hyper",
     hide = {
         statusline = true,
+        tabline = true,
+        winbar = true,
     },
     config = {
-        header = header_nvim2,
-        center = {
+        header = settings.dashboard_header,
+        project = { limit = 5 },
+        mru = { limit = 5 },
+        shortcut = {
             {
                 icon = " ",
                 icon_hl = "TSConstant",
@@ -63,32 +41,9 @@ require("dashboard").setup({
                 key_hl = "Character",
                 action = "q",
             },
-
-            {
-                icon = " ",
-                icon_hl = "@property",
-                desc = "Open directory",
-                desc_hl = "@property",
-                key = "d",
-                key_hl = "@property",
-                action = "NvimTreeToggle",
-            },
-
-            {
-                icon = " ",
-                icon_hl = "@debug",
-                desc = "Find file in the directory",
-                desc_hl = "@debug",
-                key = "f",
-                key_hl = "@debug",
-                action = "Telescope find_files",
-            }
         },
         packages = { enable = true },
-        -- week_header = {
-        --     enable = true,
-        -- },
-        footer = {"", "", "", "Let's get Rusty"},
+        footer = {"", "", "", "I'm still trying to find a GF" },
     }
 
 })

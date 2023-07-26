@@ -30,13 +30,14 @@ return require("packer").startup(function(use)
     }
 
     -- Bufferline
-    use {"akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons"}
+    use { "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" }
 
     -- Цветные отступы
     use "lukas-reineke/indent-blankline.nvim"
 
-    -- Меню при старте
+    -- Меню при старте и Ascii арты для него
     use "glepnir/dashboard-nvim"
+    use { "MaximilianLloyd/ascii.nvim", requires = { "MunifTanjim/nui.nvim" } }
 
 
 -----------------------------( Общие/для других плагинов )-------------------------------

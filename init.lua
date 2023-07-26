@@ -1,10 +1,11 @@
 local g = vim.opt
+require "plugins"
 require "base"
 require "keys"
-require "plugins"
 require "commands"
 require "theme"
 require "lsp"
+require "settings"
 
 -- Disable mouse
 vim.cmd "set mouse="
