@@ -1,6 +1,6 @@
 local cmp = require("cmp")
 
-function do_when(when, what)
+local function do_when(when, what)
     return function(fallback)
         if when() then
             what()
@@ -18,6 +18,12 @@ cmp.setup({
         end,
     },
 
+    preselect = cmp.PreselectMode.None,
+
+    window = {
+        completion = cmp.config.window.bordered(),
+    },
+
     sources = cmp.config.sources({
         { name = "nvim_lsp", group_index = 1 },
     }),
@@ -29,6 +35,10 @@ cmp.setup({
         ["<c-up>"] = cmp.mapping.scroll_docs(-2),
         ["<c-down>"] = cmp.mapping.scroll_docs(2),
     },
+
+    experimental = {
+        ghost_text = true,
+    }
 })
 
 -- command line (:)
