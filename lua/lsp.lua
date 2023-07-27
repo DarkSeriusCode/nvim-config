@@ -8,14 +8,15 @@ local function navic_on_attach(client, bufnr)
     end
 end
 
-local servers = {lsp.rust_analyzer, lsp.clangd, lsp.lua_ls, lsp.arduino_language_server, lsp.cmake}
+require("mason-lspconfig").setup_handlers({
+    function (server_name)
+        lsp[server_name].setup({
+            on_attach = function(client, bufnr)
+                navic_on_attach(client, bufnr)
+            end,
 
-for _, server in ipairs(servers) do
-    server.setup({
-        on_attach = function(client, bufnr)
-            navic_on_attach(client, bufnr)
-        end,
+            capabilities = cmp_cap,
+        })
+    end,
+})
 
-       capabilities = cmp_cap,
-    })
-end
