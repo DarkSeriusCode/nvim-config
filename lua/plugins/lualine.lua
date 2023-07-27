@@ -1,5 +1,5 @@
 local navic = require("nvim-navic")
-local theme = require("lua.theme")
+local theme = require("theme")
 
 ---------------------------- Coponents ----------------------------
 -- Returns navic location
