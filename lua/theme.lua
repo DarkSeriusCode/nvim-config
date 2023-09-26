@@ -5,6 +5,7 @@ local colors = require("catppuccin.palettes").get_palette(settings.theme_flavour
 
 require("catppuccin").setup({
     flavour = settings.theme_flavour,
+    show_end_of_buffer = true,
     integrations = {
         dashboard = true,
         indent_blankline = { enabled = true, },

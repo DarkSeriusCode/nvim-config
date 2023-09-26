@@ -43,7 +43,7 @@ require("dashboard").setup({
             },
         },
         packages = { enable = true },
-        footer = {"", "", "", "I'm still trying to find a GF" },
+        footer = {"", "", "", "I'm still trying to find friends" },
     }
 
 })

@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
 
     -- Autopairs
     use "windwp/nvim-autopairs"
+    use "windwp/nvim-ts-autotag"
 
     -- Быстрая манипуляция скобочками, кавычками и т.д
     use "kylechui/nvim-surround"

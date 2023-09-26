@@ -34,7 +34,8 @@ end
 -- Plugins
 local plugins = {"dashboard-nvim", "lualine", "bufferline", "telescope", "nvim-tree",
                  "nvim-treesitter", "cmp", "sessions", "indent-blankline", "nvim-comment",
-                 "nvim-navic", "presence", "nvim-autopairs", "mason", "nvim-surround"}
+                 "nvim-navic", "presence", "nvim-autopairs", "mason", "nvim-surround",
+                 "nvim-ts-autotag"}
 
 for _, plugin in ipairs(plugins) do
     if hasConfig(plugin) then
