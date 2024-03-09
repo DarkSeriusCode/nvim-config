@@ -5,9 +5,6 @@ local function config()
         indent = {
            char = "│",
         },
-        whitespace = {
-            highlight = { "Function", "Label" }
-        },
         scope = {
             show_exact_scope = true,
         },

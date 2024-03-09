@@ -20,7 +20,7 @@ local function in_contexts(contexts)
     return false
 end
 
-local function setup()
+local function config()
     local cmp = require("cmp")
     -- Global
     cmp.setup({
