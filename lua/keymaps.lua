@@ -15,4 +15,4 @@ nset("<c-n>", "<cmd>NvimTreeToggle<cr>")
 -- Telescope
 
 nset("<c-p>", telescope.find_files)
-nset("<c-g>", telescope.treesitter)
+nset("<c-g>", "<cmd>Navbuddy<cr>")
