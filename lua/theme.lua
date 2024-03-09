@@ -1,34 +1,27 @@
-local M = {}
-local settings = require("settings")
-local catppuccin_theme = require("lualine.themes.catppuccin")
-local colors = require("catppuccin.palettes").get_palette(settings.theme_flavour)
-
+-- Themery block
+-- This block will be replaced by Themery.
 require("catppuccin").setup({
-    flavour = settings.theme_flavour,
-    show_end_of_buffer = true,
-    integrations = {
-        dashboard = true,
-        indent_blankline = { enabled = true, },
-        mason = true,
-        telescope = { enabled = true, },
-    }
+flavour = "mocha",
+show_end_of_buffer = true,
+integrations = {
+dashboard = true,
+indent_blankline = { enabled = true, },
+mason = true,
+telescope = { enabled = true, },
+}
 })
 
-catppuccin_theme.normal = {
-    a = catppuccin_theme.normal.a,
-    b = { bg = colors.mantle, fg = colors.blue },
-    c = { bg = colors.base, fg = colors.text },
 
-}
-catppuccin_theme.insert.b = { bg = colors.mantle, fg = colors.green }
-catppuccin_theme.visual.b = { bg = colors.mantle, fg = colors.pink }
-catppuccin_theme.replace.b = { bg = colors.mantle, fg = colors.red }
-catppuccin_theme.command.b = { bg = colors.mantle, fg = colors.yellow }
+vim.cmd("colorscheme catppuccin")
 
-M.navic_bar_theme = { bg = colors.mantle, fg = colors.text, gui = "italic" }
-M.lualine_theme = catppuccin_theme
+local utils = require("utils")
+local theme = require("themes/catppuccin")
+local theme_conf = theme.theme_settings
+local lualine_config = theme_conf.lualine.layout
+.get_layout(theme_conf)
 
-vim.cmd.colorscheme "catppuccin"
+utils.reconfig("lualine", lualine_config)
+utils.reconfig("bufferline")
 
-return M
-
+vim.g.theme_id = 1
+-- end themery block

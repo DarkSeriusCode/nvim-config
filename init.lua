@@ -1,49 +1,37 @@
-local g = vim.opt
-require "plugins"
-require "base"
-require "keys"
-require "commands"
-require "theme"
-require "lsp"
-require "settings"
+local utils = require("utils")
+require("base")
 
--- Disable mouse
-vim.cmd "set mouse="
-
--- Base view
-g.number = true
-g.relativenumber = true
-g.termguicolors = true
-
--- Unlimeted undos
-g.undofile = true
-
-vim.cmd "set noshowmode" -- Я не знал как сделать иначе)
-vim.cmd "set cc=100"
-
-local function hasConfig(plugin)
-    local f = io.open(vim.fn.stdpath("config").."/lua/plugins/"..plugin..".lua", "r")
-    if f ~= nil then
-        io.close(f)
-        return true
-    else
-        return false
-    end
+---------------------------------------------------------------------------------------------------
+-- lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Plugins
-local plugins = {"dashboard-nvim", "lualine", "bufferline", "telescope", "nvim-tree",
-                 "nvim-treesitter", "cmp", "sessions", "indent-blankline", "nvim-comment",
-                 "nvim-navic", "presence", "nvim-autopairs", "mason", "nvim-surround",
-                 "nvim-ts-autotag"}
+---------------------------------------------------------------------------------------------------
 
-for _, plugin in ipairs(plugins) do
-    if hasConfig(plugin) then
-        require("plugins/"..plugin)
-    else
-        require(plugin).setup()
-    end
-end
+local lazy = require("lazy")
+lazy.setup("plugins", {
+    ui = {
+        border = "rounded",
+        title = "Plugins",
+        title_pos = "center",
+    }
+})
+require("keymaps")
+require("theme")
 
--- Fun
-print("Do u wanna see my dotfiles?")
+-- IDK why, but without it, bufferline behaves weirdly
+lazy.load({
+    plugins = { "bufferline.nvim" },
+})
+
+require("lsp_handlers").setup_lsp_handlers()

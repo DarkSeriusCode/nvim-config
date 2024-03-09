@@ -1,6 +1,3 @@
-local cmp = require("cmp")
-local settings = require("settings")
-
 local function do_when(when, what)
     return function(fallback)
         if when() then
@@ -11,7 +8,7 @@ local function do_when(when, what)
     end
 end
 
-local function inContexts(contexts)
+local function in_contexts(contexts)
     local context = require("cmp.config.context")
 
     for _, v in ipairs(contexts) do
@@ -23,60 +20,66 @@ local function inContexts(contexts)
     return false
 end
 
--- Global
-cmp.setup({
-    enabled = function ()
-        if vim.api.nvim_get_mode().mode == 'c' then
-            return true
-        else
-            return not inContexts(settings.disable_cmp_in)
-        end
-    end,
-
-    snippet = {
-        expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+local function setup()
+    local cmp = require("cmp")
+    -- Global
+    cmp.setup({
+        enabled = function ()
+            -- If we're in cmd mode or editing a file (exclude comments and string)
+            return vim.api.nvim_get_mode().mode == 'c' or not in_contexts({ "comment", "string" })
         end,
-    },
 
-    preselect = cmp.PreselectMode.None,
+        snippet = {
+            expand = function(args)
+                require("luasnip").lsp_expand(args.body)
+            end,
+        },
 
-    window = {
-        completion = cmp.config.window.bordered(),
-    },
+        preselect = cmp.PreselectMode.None,
 
-    sources = cmp.config.sources({
-        { name = "nvim_lsp", group_index = 1 },
-        { name = "buffer", group_index = 2 },
-    }),
+        window = {
+            completion = cmp.config.window.bordered(),
+        },
 
-    mapping = {
-        ["<tab>"] = do_when(cmp.visible, cmp.select_next_item),
-        ["<s-tab>"] = do_when(cmp.visible, cmp.select_prev_item),
-        ["<cr>"] = do_when(cmp.visible, cmp.confirm),
-        ["<c-up>"] = cmp.mapping.scroll_docs(-2),
-        ["<c-down>"] = cmp.mapping.scroll_docs(2),
-    },
+        sources = cmp.config.sources({
+            { name = "nvim_lsp", group_index = 1 },
+            { name = "buffer", group_index = 2 },
+        }),
 
-    experimental = {
-        ghost_text = true,
-    }
-})
+        mapping = {
+            ["<tab>"] = do_when(cmp.visible, cmp.select_next_item),
+            ["<s-tab>"] = do_when(cmp.visible, cmp.select_prev_item),
+            ["<cr>"] = do_when(cmp.visible, cmp.confirm),
+            ["<c-up>"] = cmp.mapping.scroll_docs(-2),
+            ["<c-down>"] = cmp.mapping.scroll_docs(2),
+        },
 
--- command line (:)
-cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = "path" },
-        { name = "cmdline" },
-    }),
-})
-
--- command line (/)
-cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = "buffer" }
+        experimental = {
+            ghost_text = true,
+        }
     })
-})
 
+    -- command line (:)
+    cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = "path" },
+            { name = "cmdline" },
+        }),
+    })
+
+    -- command line (/)
+    cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = "buffer" }
+        })
+    })
+end
+
+return {
+    "hrsh7th/nvim-cmp",
+    config = config,
+    dependencies = { "hrsh7th/cmp-cmdline", "hrsh7th/cmp-path", "hrsh7th/cmp-buffer",
+                     "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip" },
+}

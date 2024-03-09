@@ -1,26 +1,34 @@
-local g = vim.opt
+-- Tabs
+vim.cmd "set expandtab"
+vim.cmd "set tabstop=4"
+vim.cmd "set shiftwidth=4"
 
---[[ ------------------------- [ ПОИСК ] ------------------------- ]] 
+-- Searching
+vim.cmd "set ignorecase"
+vim.cmd "set smartcase"
+vim.cmd "set hlsearch"
 
--- Игнорирование регистра при поиске
-g.ignorecase = true
-g.smartcase = true
+-- Disable mouse
+vim.cmd "set mouse="
 
--- Подсветка при поиске
-g.hlsearch = true
+-- Folds
+vim.cmd "set foldmethod=indent"
+vim.cmd "set foldnestmax=2"
+vim.cmd "set nofoldenable"
+vim.cmd "set foldlevel=10"
 
+-- Base view
+vim.cmd "set cursorline"
+vim.cmd "set number"
+vim.cmd "set relativenumber"
+vim.cmd "set termguicolors"
 
---[[ ------------------------- [ ТАБЫ ] ------------------------- ]] 
+-- Unlimeted undos
+vim.cmd "set undofile"
 
--- Размер таба
-local tabsz = 4
-
-g.tabstop = tabsz
---g.softtabstop = tabsz
-g.shiftwidth = tabsz
-
--- Пробелы вместо табов
-g.expandtab = true
-
---[[ ------------------------- [ ПОДСКАЗКИ ] ------------------------- ]] 
 vim.cmd "set completeopt=menu,menuone,noselect"
+vim.cmd "set nocompatible"
+vim.cmd "set ttyfast"
+vim.cmd "set noshowmode"
+vim.cmd "set cc=100"
+vim.cmd [[command W :w]]
