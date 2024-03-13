@@ -4,7 +4,6 @@ local function config()
     require("nvim-treesitter.configs").setup({
         ensure_installed = used_parsers,
         highlight = { enable = true },
-        indent = { enable = true },
         autotag = { enable = true },
     })
 end
