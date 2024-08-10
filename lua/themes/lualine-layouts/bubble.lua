@@ -18,21 +18,6 @@ local function navic_component(theme)
     }
 end
 
--- Returns pomodoro timer
-local function pomodoro_component()
-    local ok, pomo = pcall(require, "pomo")
-    if not ok then
-        return ""
-    end
-
-    local timer = pomo.get_first_to_finish()
-    if timer == nil then
-        return ""
-    end
-
-    return "󰄉 " .. tostring(timer)
-end
-
 -- Returns custom file location
 local function location_component()
     return "%l/%L %p%%"
@@ -89,7 +74,6 @@ function M.get_layout(theme)
             lualine_c = {},
             lualine_x = {},
             lualine_y = {
-                pomodoro_component,
                 {
                     "diff",
                     symbols = {
