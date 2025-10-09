@@ -1,4 +1,3 @@
-local utils = require("utils")
 require("base")
 
 ---------------------------------------------------------------------------------------------------
@@ -27,11 +26,6 @@ lazy.setup("plugins", {
     }
 })
 require("keymaps")
-require("theme")
-
--- IDK why, but without it, bufferline behaves weirdly
-lazy.load({
-    plugins = { "bufferline.nvim" },
-})
+-- require("theme")
 
 require("lsp_handlers").setup_lsp_handlers()

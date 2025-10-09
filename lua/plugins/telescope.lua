@@ -1,7 +1,7 @@
-function config()
+local function config()
     require("telescope").setup({
         defaults = {
-            layout_strategy = "vertical",
+            layout_strategy = "horizontal",
             prompt_prefix = ": ",
             selection_caret = " ",
             file_ignore_patterns = {"target", "build", "docs"},

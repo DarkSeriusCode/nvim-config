@@ -26,7 +26,7 @@ local function config()
     cmp.setup({
         enabled = function ()
             -- If we're in cmd mode or editing a file (exclude comments and string)
-            return vim.api.nvim_get_mode().mode == 'c' or not in_contexts({ "comment", "string" })
+            return vim.api.nvim_get_mode().mode == 'c' or not in_contexts({ "comment" })
         end,
 
         snippet = {
@@ -39,6 +39,7 @@ local function config()
 
         window = {
             completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
         },
 
         sources = cmp.config.sources({

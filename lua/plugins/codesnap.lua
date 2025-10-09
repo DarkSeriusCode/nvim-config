@@ -8,7 +8,7 @@ local function config()
 end
 
 return {
-    "mistricky/codesnap.nvim",
-    build = "make",
-    config = config,
+--    "mistricky/codesnap.nvim",
+--    build = "make build_generator",
+--    config = config,
 }

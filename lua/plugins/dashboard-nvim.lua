@@ -1,4 +1,4 @@
-function config()
+local function config()
     local ascii = require("ascii")
     require("dashboard").setup({
         theme = "hyper",
@@ -14,11 +14,11 @@ function config()
             shortcut = {
                 {
                     icon = " ",
-                    icon_hl = "TSConstant",
+                    icon_hl = "@property",
                     desc = "Open last session",
-                    desc_hl = "TSConstant",
+                    desc_hl = "@property",
                     key = "s",
-                    key_hl = "TSConstant",
+                    key_hl = "@property",
                     action = "SessionManager load_current_dir_session",
                 },
 
@@ -34,16 +34,16 @@ function config()
 
                 {
                     icon = " ",
-                    icon_hl = "Character",
+                    icon_hl = "String",
                     desc = "Go outside and touch a grass",
-                    desc_hl = "Character",
+                    desc_hl = "String",
                     key = "q",
-                    key_hl = "Character",
+                    key_hl = "String",
                     action = "q",
                 },
             },
             packages = { enable = true },
-            footer = {"", "", "", "I'm still trying to find friends" },
+            footer = {"", "", "", "I think my journey is finally over.", "Goodbye world" },
         }
 
     })

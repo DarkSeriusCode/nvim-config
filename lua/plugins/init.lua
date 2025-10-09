@@ -6,6 +6,15 @@ local function simple_plugin(name, config)
 end
 
 return {
+    -- simple_plugin("windwp/nvim-ts-autotag", function ()
+    --     require('nvim-ts-autotag').setup({
+    --         opts = {
+    --             enable_close = true,
+    --             enable_rename = true,
+    --             enable_close_on_slash = false
+    --         }
+    --     })
+    -- end),
     simple_plugin("windwp/nvim-autopairs"),
     simple_plugin("terrortylor/nvim-comment", function ()
         require("nvim_comment").setup({

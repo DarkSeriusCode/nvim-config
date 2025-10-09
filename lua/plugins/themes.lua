@@ -1,6 +1,7 @@
 local function get_all_themes()
     return {
-        require("themes/catppuccin")
+        require("themes/catppuccin"),
+        require("themes/gruvbox_d"),
     }
 end
 
@@ -10,7 +11,6 @@ return {
         config = function ()
             require("themery").setup({
                 themes = get_all_themes(),
-                themeConfigFile = vim.fn.stdpath("config").."/lua/theme.lua"
             })
         end,
     },
@@ -19,4 +19,14 @@ return {
         name = "catppuccin",
         priority = 1000,
     },
+    {
+        "ellisonleao/gruvbox.nvim",
+        name = "gruvbox_theme",
+        config = function ()
+            require("gruvbox").setup({
+                inverse = false
+            })
+        end,
+        priority = 1000,
+    }
 }

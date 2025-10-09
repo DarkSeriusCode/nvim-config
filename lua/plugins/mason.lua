@@ -1,6 +1,7 @@
-local used_servers = { "asm_lsp", "clangd", "cmake", "hls", "lua_ls", "rust_analyzer" }
+local used_servers = { "clangd", "lua_ls" }
+-- Install rust-analyzer@2023...
 
-function config()
+local function config()
     require("mason").setup()
 
     require("mason-lspconfig").setup({
