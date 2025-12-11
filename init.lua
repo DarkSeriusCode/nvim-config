@@ -26,6 +26,6 @@ lazy.setup("plugins", {
     }
 })
 require("keymaps")
--- require("theme")
+require("theme")
 
 require("lsp_handlers").setup_lsp_handlers()
